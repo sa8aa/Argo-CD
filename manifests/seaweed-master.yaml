@@ -17,7 +17,7 @@ spec:
         - name: seaweed-master
           image: chrislusf/seaweedfs
 
-          args: ["master", "-ip=seaweed-master"]
+          args: ["master", "-ip=seaweed-master", "-ip.bind=0.0.0.0"]
           ports:
             - containerPort: 9333
 ---
