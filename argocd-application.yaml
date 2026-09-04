@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pfe-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/sa8aa/Argo-CD.git
+    targetRevision: develop
+    path: manifests
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: edushare
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
